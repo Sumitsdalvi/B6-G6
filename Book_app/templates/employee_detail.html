@@ -1,0 +1,23 @@
+{% extends 'base.html' %}  
+  
+{% block content %}  
+    {% if object %}
+        <h3><center>-- Employee No {{object.id}} details --</center></h3>
+        <hr>
+        <h1>Full Name :- {{ object.first_name }} {{object.last_name}}</h1>  
+        <p>Email ID :- {{ object.email }}</p>  
+        <p>Conatct Details :- {{ object.mobile }}</p>  
+    {% else %}
+        <h1>No Data Found</h1>
+    {% endif %}  
+    <form action="{% url 'EmployeeUpdate' object.id %}" >
+        {%csrf_token%}
+        <input type="submit" value = "Update Details" class="btn btn-warning">
+    </form> <br><hr><br>
+    <ul class="nav justify-content-end">
+        <form action="{% url 'EmployeeCreate' %}" >
+            {%csrf_token%}
+            <input type="submit" value = "Home" class="btn btn-success">
+        </form>
+    </ul>
+{% endblock content %}  
