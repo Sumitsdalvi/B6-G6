@@ -10,27 +10,32 @@ class EmployeeCreate(CreateView):
     """This is createview which creates new employee with given details"""
     model = Employee
     fields = "__all__"
+    template_name = "employee_form.html"
     success_url = "http://127.0.0.1:8000/create/"
 
 class EmployeeRetrieve(ListView):
     """This is ListView which retrieves all employee """
     model = Employee
+    template_name = "employee_list.html"
     paginate_by = 6
 
     
 class EmployeeDetail(DetailView):  
     """This is DetailView which retrieves an employee for given ID or PK"""
+    template_name = "employee_detail.html"
     model = Employee 
 
 class EmployeeUpdate(UpdateView):  
     """This is UpdateView which updates an employee details for given ID or PK"""
     model = Employee 
+    template_name = "employee_form.html"
     fields = '__all__'
     success_url = "http://127.0.0.1:8000/retrieve/"
 
   
 class EmployeeDelete(DeleteView):  
     """This is DeleteView which deletes an employee for given ID or PK"""
+    template_name = "employee_confirm_delete.html"
     model = Employee 
     success_url = "http://127.0.0.1:8000/retrieve/"
     
