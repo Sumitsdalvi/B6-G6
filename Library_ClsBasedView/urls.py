@@ -22,7 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('form-home/',views.form_home , name="FormHome_FBV"),
     path('form-home-cbv/',views.Home_CBV.as_view() , name="FormHome_CBV"),
-    # path('form-home-cbv/<pk:pk>',views.Home_CBV.as_view() , name="FormHome_CBV_1"),
+    path('',EmployeeCreate.as_view(), name = 'EmployeeCreate'),
     path('FormHome-template-CBV/',views.CBV_TemplateView_form_home.as_view() , name="FormHome_template_CBV"),
     path('create/',EmployeeCreate.as_view(), name = 'EmployeeCreate'),
     path('retrieve/',EmployeeRetrieve.as_view(), name = 'EmployeeRetrieve'),
